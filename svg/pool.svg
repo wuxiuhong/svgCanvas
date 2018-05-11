@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="485px" height="282px" viewBox="0 0 485 282" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>img/pool</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="17.1693091%" y1="47.6928711%" x2="87.8839254%" y2="47.6928711%" id="linearGradient-1">
+            <stop stop-color="#05698D" offset="0%"></stop>
+            <stop stop-color="#05698D" stop-opacity="0.6" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="408" height="256"></rect>
+        <linearGradient x1="85.9620367%" y1="83.0522739%" x2="21.7369114%" y2="25.5625821%" id="linearGradient-3">
+            <stop stop-color="#29D9E2" offset="0%"></stop>
+            <stop stop-color="#29B1EB" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="7" y="6" width="394" height="242"></rect>
+        <linearGradient x1="56.9500812%" y1="21.0053943%" x2="110.57224%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#05698D" offset="0%"></stop>
+            <stop stop-color="#05698D" stop-opacity="0.6" offset="100%"></stop>
+        </linearGradient>
+        <path d="M77,26 L77,77 L51,77 L51,26 L0,26 L0,0 L77,0 L77,26 Z" id="path-6"></path>
+        <linearGradient x1="74.6329303%" y1="76.6021977%" x2="20.6766253%" y2="24.5395071%" id="linearGradient-7">
+            <stop stop-color="#29D9E2" offset="0%"></stop>
+            <stfop stop-color="#29D9E2" stop-opacity="0.5" offset="100%"></stfop>
+        </linearGradient>
+        <path d="M71,20 L71,77 L57,77 L57,20 L0,20 L0,6 L71,6 L71,20 Z" id="path-8"></path>
+    </defs>
+    <g id="img/pool" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pool">
+            <g id="Rectangle-5">
+                <use fill="#FFFFFF" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+            <g id="Rectangle-5">
+                <use fill="#FFFFFF" xlink:href="#path-4"></use>
+                <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+            </g>
+            <g id="airpump1" transform="translate(295.000000, 112.000000)">
+                <circle id="Oval-2" stroke="#29D9E2" stroke-width="2" fill-opacity="0.34" fill="#000000" cx="16" cy="16" r="16"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="16" cy="8" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-4" fill="#30DBE3" cx="16" cy="24" r="2.66666667"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="8" cy="16" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-3" fill="#30DBE3" cx="24" cy="16" r="2.66666667"></circle>
+            </g>
+            <g id="airpump1" transform="translate(192.000000, 112.000000)">
+                <circle id="Oval-2" stroke="#29D9E2" stroke-width="2" fill-opacity="0.34" fill="#000000" cx="16" cy="16" r="16"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="16" cy="8" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-4" fill="#30DBE3" cx="16" cy="24" r="2.66666667"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="8" cy="16" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-3" fill="#30DBE3" cx="24" cy="16" r="2.66666667"></circle>
+            </g>
+            <g id="airpump1" transform="translate(89.000000, 112.000000)">
+                <circle id="Oval-2" stroke="#29D9E2" stroke-width="2" fill-opacity="0.34" fill="#000000" cx="16" cy="16" r="16"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="16" cy="8" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-4" fill="#30DBE3" cx="16" cy="24" r="2.66666667"></circle>
+                <circle id="Oval-2" fill="#30DBE3" cx="8" cy="16" r="2.66666667"></circle>
+                <circle id="Oval-2-Copy-3" fill="#30DBE3" cx="24" cy="16" r="2.66666667"></circle>
+            </g>
+            <g id="waterpipe" transform="translate(408.000000, 205.000000)">
+                <g id="Group">
+                    <g id="Combined-Shape">
+                        <use fill="#FFFFFF" xlink:href="#path-6"></use>
+                        <use fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                    </g>
+                    <g id="Combined-Shape">
+                        <use fill="#FFFFFF" xlink:href="#path-8"></use>
+                        <use fill="url(#linearGradient-7)" xlink:href="#path-8"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
