@@ -16,7 +16,7 @@
         <rect id="path-2" x="0" y="0" width="600" height="370"></rect>
         <linearGradient x1="17.1693091%" y1="47.6928711%" x2="87.8839254%" y2="47.6928711%" id="linearGradient-4">
             <stop stop-color="#05698D" offset="0%"></stop>
-            <stop stop-color="#05698D" stop-opacity="0.6" offset="100%"></stop>feGaussianBlur
+            <stop stop-color="#05698D" stop-opacity="0.6" offset="100%"></stop>
         </linearGradient>
         <rect id="path-5" x="0" y="0" width="408" height="256"></rect>
         <linearGradient x1="85.9620367%" y1="83.0522739%" x2="21.7369114%" y2="25.5625821%" id="linearGradient-6">

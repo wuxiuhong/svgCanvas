@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>btn/period/add/h</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="4" y="4" width="20" height="20" rx="10"></rect>
+        <filter x="-25.0%" y="-25.0%" width="175.0%" height="175.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowOffsetOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="btn/period/add/h" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add">
+            <rect id="bound" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="28" height="28"></rect>
+            <g id="Rectangle-5">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#E6C043" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <path d="M18.099964,13.099964 L14.900036,13.099964 L14.900036,9.900036 C14.900036,9.40321613 14.4968199,9 14,9 C13.5025801,9 13.099964,9.40321613 13.099964,9.900036 L13.099964,13.099964 L9.900036,13.099964 C9.4026161,13.099964 9,13.5031801 9,14 C9,14.4968199 9.4026161,14.900036 9.900036,14.900036 L13.099964,14.900036 L13.099964,18.099964 C13.099964,18.5967839 13.5025801,19 14,19 C14.4968199,19 14.900036,18.5967839 14.900036,18.099964 L14.900036,14.900036 L18.099964,14.900036 C18.5967839,14.900036 19,14.4968199 19,14 C19,13.5031801 18.5967839,13.099964 18.099964,13.099964" id="Path" fill="#4A4A4A"></path>
+        </g>
+    </g>
+</svg>

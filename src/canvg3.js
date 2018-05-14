@@ -1,3 +1,7 @@
+/**
+ * modified by sam@qunee.com
+ * http://demo.qunee.com/svg2canvas
+ */
 /*
  * canvg.js - Javascript SVG parser and renderer on Canvas
  * MIT Licensed
@@ -6,62 +10,22 @@
  *
  * Requires: rgbcolor.js - http://www.phpied.com/rgb-color-parser-in-javascript/
  */
-(function (global, factory) {
-
-    'use strict';
-    // export as AMD...
-    if (typeof define !== 'undefined' && define.amd) {
-        define('canvgModule', ['rgbcolor', 'stackblur'], factory);
-    }
-
-    // ...or as browserify
-    else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = factory(require('rgbcolor'), require('stackblur'));
-    }
-    else {
-        global.canvg = factory(global.RGBColor, global.stackBlur);
-    }
-
-}(typeof window !== 'undefined' ? window : this, function (RGBColor, stackBlur) {
-    var nodeEnv = (typeof module !== 'undefined' && module.exports);
-    var windowEnv, ImageClass, CanvasClass,
-        defaultClientWidth = 800, defaultClientHeight = 600;
-    if (nodeEnv && (typeof window === 'undefined')) {
-        var jsdom = require('jsdom').jsdom;
-        windowEnv = jsdom().defaultView;
-    } else {
-        windowEnv = window;
-    }
-    if (!windowEnv.DOMParser) {
-        windowEnv.DOMParser = require('xmldom').DOMParser;
-    }
-
-    function createCanvas() {
-        var c;
-        if (nodeEnv) {
-            c = new CanvasClass();
-        } else {
-            c = document.createElement('canvas');
-        }
-        return c;
-    }
-
+(function () {
     // canvg(target, s)
     // empty parameters: replace all 'svg' elements on page with 'canvas' elements
     // target: canvas element or the id of a canvas element
     // s: svg string, url to svg file, or xml document
     // opts: optional hash of options
-    //       ignoreMouse: true => ignore mouse events
-    //       ignoreAnimation: true => ignore animations
-    //       ignoreDimensions: true => does not try to resize canvas
-    //       ignoreClear: true => does not clear canvas
-    //       offsetX: int => draws at a x offset
-    //       offsetY: int => draws at a y offset
-    //       scaleWidth: int => scales horizontally to width
-    //       scaleHeight: int => scales vertically to height
-    //       renderCallback: function => will call the function after the first render is completed
-    //       enableRedraw: function => whether enable the redraw interval in node environment
-    //       forceRedraw: function => will call the function on every frame, if it returns true, will redraw
+    //		 ignoreMouse: true => ignore mouse events
+    //		 ignoreAnimation: true => ignore animations
+    //		 ignoreDimensions: true => does not try to resize canvas
+    //		 ignoreClear: true => does not clear canvas
+    //		 offsetX: int => draws at a x offset
+    //		 offsetY: int => draws at a y offset
+    //		 scaleWidth: int => scales horizontally to width
+    //		 scaleHeight: int => scales vertically to height
+    //		 renderCallback: function => will call the function after the first render is completed
+    //		 forceRedraw: function => will call the function on every frame, if it returns true, will redraw
     this.canvg = function (target, s, opts) {
         // no parameters
         if (target == null && s == null && opts == null) {
@@ -79,7 +43,6 @@
             }
             return;
         }
-
 
         if (typeof target == 'string') {
             target = document.getElementById(target);
@@ -1908,10 +1871,9 @@
         svg.Element.linearGradient = function (node) {
             this.base = svg.Element.GradientBase;
             this.base(node);
-            console.log(node, 'test');
+
             this.getGradient = function (ctx, element) {
                 var bb = this.gradientUnits == 'objectBoundingBox' ? element.getBoundingBox() : null;
-                console.log(bb, ' 1111111111111111111111111111111111111111111111111');
 
                 if (!this.attribute('x1').hasValue()
                     && !this.attribute('y1').hasValue()
@@ -2553,10 +2515,9 @@
             this.getBoundingBox = function () {
                 var bb = new svg.BoundingBox();
                 for (var i = 0; i < this.children.length; i++) {
-                    bb.addBoundingBox(this.children[i].getBoundingBox());
-                    // if (this.children[i].type === 'g') {
-                    //     bb.addBoundingBox(this.children[i].getBoundingBox());
-                    // }
+                    if (this.children[i].type === 'g') {
+                        bb.addBoundingBox(this.children[i].getBoundingBox());
+                    }
                 }
                 return bb;
             };
@@ -3243,7 +3204,7 @@
                 var ctxName = this.name;
                 if (name == 'createLinearGradient' || name == 'createRadialGradient') {
                     appendCode('var g = ' + ctxName + '.' + name + '(' + param + ');\n', this);
-                    console.log(name, arguments, '111111111111111111111111111');
+                    console.log(name, arguments, '11111111111111');
                     var gradient = this[name].apply(this, arguments);
 
                     var ctx = this;
@@ -3417,30 +3378,19 @@
         }
         return result;
     }
+})();
 
-
-    if (typeof CanvasRenderingContext2D != 'undefined') {
-        CanvasRenderingContext2D.prototype.drawSvg = function (s, dx, dy, dw, dh, opts) {
-            var cOpts = {
-                ignoreMouse: true,
-                ignoreAnimation: true,
-                ignoreDimensions: true,
-                ignoreClear: true,
-                offsetX: dx,
-                offsetY: dy,
-                scaleWidth: dw,
-                scaleHeight: dh
-            }
-
-            for (var prop in opts) {
-                if (opts.hasOwnProperty(prop)) {
-                    cOpts[prop] = opts[prop];
-                }
-            }
-            canvg(this.canvas, s, cOpts);
-        }
+if (typeof(CanvasRenderingContext2D) != 'undefined') {
+    CanvasRenderingContext2D.prototype.drawSvg = function (s, dx, dy, dw, dh) {
+        canvg(this.canvas, s, {
+            ignoreMouse: true,
+            ignoreAnimation: true,
+            ignoreDimensions: true,
+            ignoreClear: true,
+            offsetX: dx,
+            offsetY: dy,
+            scaleWidth: dw,
+            scaleHeight: dh
+        });
     }
-
-    return canvg;
-
-}));
+}

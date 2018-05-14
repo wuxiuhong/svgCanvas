@@ -197,7 +197,7 @@
                 <g>
                     <g id="Rectangle-3-Copy">
                         <use fill-opacity="0.75" fill="#F5E85B" fill-rule="evenodd" xlink:href="#path-1"></use>
-                        <!--<use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>-->
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
                     </g>
                     <g id="Rectangle-3">
                         <use fill-opacity="0.85" fill="#F5E85B" fill-rule="evenodd" xlink:href="#path-3"></use>
