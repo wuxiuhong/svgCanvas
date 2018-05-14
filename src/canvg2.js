@@ -146,11 +146,12 @@
         }
         ;
 
-        // globals
+        // globals, svg初始化
         svg.init = function (ctx) {
             var uniqueId = 0;
             svg.UniqueId = function () {
                 uniqueId++;
+                console.log('canvg' + uniqueId, 'uniqueId11111111111111111111111111111');
                 return 'canvg' + uniqueId;
             };
             svg.Definitions = {};
@@ -858,13 +859,23 @@
                 if (this.style('visibility').value == 'hidden') return;
 
                 ctx.save2();
+
                 if (this.attribute('mask').hasValue()) { // mask
                     var mask = this.attribute('mask').getDefinition();
                     if (mask != null) mask.apply(ctx, this);
                 }
                 else if (this.style('filter').hasValue()) { // filter
                     var filter = this.style('filter').getDefinition();
-                    if (filter != null) filter.apply(ctx, this);
+                    // console.log(filter, '21411');
+                    if (filter != null) {
+                        var fillStyle = this.style('fill');
+                        if (fillStyle.value == 'currentColor') fillStyle.value = this.style('color').value;
+                        if (fillStyle.value != 'inherit') ctx.shadowColor2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
+                        filter.apply(ctx, this);
+                    }
+                    this.setContext(ctx);
+                    this.renderChildren(ctx);
+                    this.clearContext(ctx);
                 }
                 else {
                     this.setContext(ctx);
@@ -2735,7 +2746,6 @@
             this.base(node);
             this.apply = function (ctx, element) {
                 // render as temp svg
-                // console.log(element, '2222222222');
                 // var bb = element.getBoundingBox();
                 // console.log(bb, 'test');
                 // var x = Math.floor(bb.x1);
@@ -2759,23 +2769,23 @@
                     px = Math.max(px, efd);
                     py = Math.max(py, efd);
                 }
-
-                var c = document.createElement('canvas');
-                c.width = width + 2 * px;
-                c.height = height + 2 * py;
-                var tempCtx = c.getContext('2d');
-                tempCtx.translate2(-x + px, -y + py);
-                element.render(tempCtx);
+                //
+                // var c = document.createElement('canvas');
+                // c.width = width + 2 * px;
+                // c.height = height + 2 * py;
+                // var tempCtx = c.getContext('2d');
+                // tempCtx.translate2(-x + px, -y + py);
+                // element.render(tempCtx);
                 // console.log(this.children, 'test111111111');
                 // apply filters
                 for (var i = 0; i < this.children.length; i++) {
-                    this.children[i].apply(tempCtx, 0, 0, width + 2 * px, height + 2 * py);
+                    this.children[i].apply(ctx, 0, 0, width + 2 * px, height + 2 * py);
                     // if(this.children[i].type==='feGaussianBlur'){
                     //     this.children[i].apply(tempCtx, 0, 0, width + 2 * px, height + 2 * py);
                     // }
                 }
                 // render on me
-                ctx.drawImage2(c, 0, 0, width + 2 * px, height + 2 * py, x - px, y - py, width + 2 * px, height + 2 * py);
+                // ctx.drawImage2(c, 0, 0, width + 2 * px, height + 2 * py, x - px, y - py, width + 2 * px, height + 2 * py);
 
                 // reassign filter
                 element.style('filter', true).value = filter;
@@ -2820,6 +2830,7 @@
                         0.213 - 0.213 * s, 0.715 - 0.715 * s, 0.072 + 0.928 * s, 0, 0,
                         0, 0, 0, 1, 0,
                         0, 0, 0, 0, 1];
+
                     break;
                 case 'hueRotate':
                     var a = matrix[0] * Math.PI / 180.0;
@@ -2841,39 +2852,8 @@
                     break;
             }
 
-            function imGet(img, x, y, width, height, rgba) {
-                return img[y * width * 4 + x * 4 + rgba];
-            }
-
-            function imSet(img, x, y, width, height, rgba, val) {
-                img[y * width * 4 + x * 4 + rgba] = val;
-            }
-
-            function m(i, v) {
-                var mi = matrix[i];
-                return mi * (mi < 0 ? v - 255 : v);
-            }
-
             this.apply = function (ctx, x, y, width, height) {
-                // assuming x==0 && y==0 for now
-                console.log(ctx, 'tet1111');
-                if (!(x == 0 && y == 0)) {
-                    var srcData = ctx.getImageData2(0, 0, width, height);
-                    for (var y = 0; y < height; y++) {
-                        for (var x = 0; x < width; x++) {
-                            var r = imGet(srcData.data, x, y, width, height, 0);
-                            var g = imGet(srcData.data, x, y, width, height, 1);
-                            var b = imGet(srcData.data, x, y, width, height, 2);
-                            var a = imGet(srcData.data, x, y, width, height, 3);
-                            imSet(srcData.data, x, y, width, height, 0, m(0, r) + m(1, g) + m(2, b) + m(3, a) + m(4, 1));
-                            imSet(srcData.data, x, y, width, height, 1, m(5, r) + m(6, g) + m(7, b) + m(8, a) + m(9, 1));
-                            imSet(srcData.data, x, y, width, height, 2, m(10, r) + m(11, g) + m(12, b) + m(13, a) + m(14, 1));
-                            imSet(srcData.data, x, y, width, height, 3, m(15, r) + m(16, g) + m(17, b) + m(18, a) + m(19, 1));
-                        }
-                    }
-                    ctx.clearRect2(0, 0, width, height);
-                    ctx.putImageData2(srcData, 0, 0);
-                }
+                ctx.shadowColor2 =  'rgba(' + matrix[4] + ', ' + matrix[9] + ', ' + matrix[14] + ', ' + matrix[18] + ')';
             }
         }
         svg.Element.feColorMatrix.prototype = new svg.Element.ElementBase;
@@ -2890,15 +2870,10 @@
                     svg.log('ERROR: StackBlur.js must be included for blur to work');
                     return;
                 }
-                // StackBlur requires canvas be on document
                 ctx.canvas.id = svg.UniqueId();
+                ctx.shadowBlur2 = this.blurRadius;
                 ctx.canvas.style.display = 'none';
-                // ctx.shadowBlur = this.blurRadius;
-                // console.log(ctx.canvas,ctx.canvas.id, 'test')
                 document.body.appendChild(ctx.canvas);
-                // stackBlurCanvasRGBA(ctx.canvas.id, x, y, width, height, this.blurRadius);
-                //
-                //  document.body.removeChild(ctx.canvas);
             }
         }
         svg.Element.feGaussianBlur.prototype = new svg.Element.ElementBase;
@@ -2906,7 +2881,11 @@
         svg.Element.feOffset = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
+            this.dx = Math.floor(this.attribute('dx').numValue());
+            this.dy = Math.floor(this.attribute('dy').numValue());
             this.apply = function (ctx, x, y, width, height) {
+                ctx.shadowOffsetX2 = this.dx || 0;
+                ctx.shadowOffsetY2 = this.dy;
                 // document.body.removeChild(ctx.canvas);
             }
         }
@@ -2962,9 +2941,9 @@
             svg.loadXmlDoc(ctx, svg.parseXml(xml));
         }
 
+        // 获取doc结构
         svg.loadXmlDoc = function (ctx, dom) {
             svg.init(ctx);
-
             var mapXY = function (p) {
                 var e = ctx.canvas;
                 while (e) {
@@ -3056,7 +3035,6 @@
                     isFirstRender = false;
                     if (typeof(svg.opts['renderCallback']) == 'function') svg.opts['renderCallback'](dom);
                 }
-                // console.log(code, '3333333333333333');
             }
 
             var waitingForImages = true;
@@ -3206,13 +3184,13 @@
 
         function valueToString(v) {
             if (typeof v == 'string') {
-                if(!caches){
-                   caches = {};
+                if (!caches) {
+                    caches = {};
                 }
-                if(!caches[v]){
-                   var name = 'str' + index++;
-                   appendCode('var ' + name + ' = "' + v.replace(/\"/g, "'") + '";\n');
-                   caches[v] = name;
+                if (!caches[v]) {
+                    var name = 'str' + index++;
+                    appendCode('var ' + name + ' = "' + v.replace(/\"/g, "'") + '";\n');
+                    caches[v] = name;
                 }
                 //return caches[v];
                 return '"' + v.replace(/\"/g, "'") + '"';

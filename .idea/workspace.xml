@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7dd41900-6a2e-49d7-aa26-c0bd9cf31078" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/canvg-master/flashcanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/canvg-master/flashcanvas.swf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/canvg-master/rgbcolor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/canvg-master/stackblur.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/A.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/box_info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/box_info1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/box_info2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/box_info3.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/box_info4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/fans_s.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/image7.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/lightpanel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/nonetransparent.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/on.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/on1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/oval.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/pool.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/rec.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/rec1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svg/transparent.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svg/added.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svg/d.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/svg/test.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Screen-Shot-2015-04-30-at-6.16.41-PM-1024x581.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/Screen-Shot-2015-04-30-at-6.48.15-PM-1024x567.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/canvg-master/StackBlur.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/canvg-master/StackBlur.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/canvg-master/canvg.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/canvg-master/canvg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/canvg2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/canvg2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.html" beforeDir="false" afterPath="$PROJECT_DIR$/test1.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,30 +24,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="canvg2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/canvg2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="223" column="20" selection-start-line="223" selection-start-column="11" selection-end-line="223" selection-end-column="20" />
+            <state relative-caret-position="489">
+              <caret line="763" column="42" lean-forward="true" selection-start-line="763" selection-start-column="42" selection-end-line="763" selection-end-column="42" />
               <folding>
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test1.html">
+      <file leaf-file-name="canvg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/canvg-master/canvg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="818">
-              <caret line="1514" column="94" lean-forward="true" selection-start-line="1514" selection-start-column="94" selection-end-line="1514" selection-end-column="94" />
+            <state relative-caret-position="470">
+              <caret line="2858" column="17" lean-forward="true" selection-start-line="2840" selection-end-line="2858" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="image7.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svg/image7.svg">
+      <file leaf-file-name="d.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svg/d.svg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="insert.code.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/insert.code.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="685">
+              <caret line="147" column="51" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="added.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svg/added.svg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="test1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="166" column="24" lean-forward="true" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svg/test.svg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="rec.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/svg/rec.svg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
@@ -75,69 +97,40 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="canvg2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/canvg2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" selection-start-line="23" selection-end-line="24" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StackBlur.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/canvg-master/StackBlur.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4921">
-              <caret line="367" column="9" lean-forward="true" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lightpanel.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svg/lightpanel.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawImage2</find>
-      <find>BoundingBox</find>
-      <find>this.apply</find>
-      <find>getBoundingBox</find>
-      <find>#path-2</find>
-      <find>path-2</find>
-      <find>feGaussianBlur</find>
-      <find>stackBlurCanvasRGBA</find>
-      <find>radius</find>
-      <find>scale</find>
-      <find>1240</find>
+      <find>blurRadius</find>
+      <find>green</find>
+      <find>this.children[i].apply(tempCtx, 0, 0, width + 2 * px, height + 2 * py)</find>
+      <find>children</find>
+      <find>svg.Element.filter</find>
+      <find>this.style('filter').isUrlDefinition()</find>
+      <find>font</find>
+      <find>ctx2</find>
+      <find>fill</find>
+      <find>feOffset</find>
+      <find>shadowOffsetY</find>
+      <find>sc</find>
+      <find>shadowColor</find>
       <find>filter-1</find>
-      <find>filter-3</find>
-      <find>svg_9_blur</find>
-      <find>filter</find>
-      <find>filter-2</find>
-      <find>filter=</find>
-      <find>stackBlurCanvasRGB</find>
-      <find>canvas</find>
-      <find>512</find>
-      <find>graph</find>
-      <find>canvg</find>
-      <find>ctx.canvas</find>
-      <find>drawSVGImageByCanvg</find>
-      <find>q-canvas</find>
-      <find>code_out</find>
-      <find>onSVGDraw</find>
-      <find>code</find>
-      <find>appendCode</find>
-      <find>createFunction</find>
+      <find>createLinearGradient</find>
+      <find>renderCallback</find>
+      <find>forceRedraw</find>
+      <find>shadowMatrixOuter1</find>
+      <find>shadowBlur</find>
+      <find>rgba</find>
+      <find>feColorMatrix</find>
+      <find>matir</find>
+      <find>m</find>
+      <find>imGet</find>
+      <find>RGB</find>
+      <find>color</find>
+      <find>ctx.shadowColor2</find>
+      <find>type</find>
+      <find>width</find>
+      <find>matrix</find>
     </findStrings>
     <dirStrings>
       <dir>D:\git\svg2canvas\src\canvg-master</dir>
@@ -158,15 +151,20 @@
         <option value="$USER_HOME$/Desktop/canvg-master/canvg.js" />
         <option value="$PROJECT_DIR$/svg/box_info4.svg" />
         <option value="$PROJECT_DIR$/src/canvg21.js" />
-        <option value="$PROJECT_DIR$/src/canvg-master/canvg.js" />
         <option value="$PROJECT_DIR$/svg/box_info2.svg" />
-        <option value="$PROJECT_DIR$/test1.html" />
         <option value="$PROJECT_DIR$/svg/A.svg" />
         <option value="$PROJECT_DIR$/svg/image7.svg" />
         <option value="$PROJECT_DIR$/svg/lightpanel.svg" />
         <option value="$PROJECT_DIR$/src/canvg-master/StackBlur.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/svg/test.svg" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/svg/rec.svg" />
+        <option value="$PROJECT_DIR$/svg/d.svg" />
+        <option value="$PROJECT_DIR$/src/canvg-master/canvg.js" />
+        <option value="$PROJECT_DIR$/svg/added.svg" />
         <option value="$PROJECT_DIR$/src/canvg2.js" />
+        <option value="$PROJECT_DIR$/test1.html" />
       </list>
     </option>
   </component>
@@ -180,8 +178,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="628" />
-    <option name="y" value="248" />
+    <option name="x" value="866" />
+    <option name="y" value="124" />
     <option name="width" value="1758" />
     <option name="height" value="1548" />
   </component>
@@ -190,6 +188,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,11 +199,6 @@
             <path>
               <item name="svg2canvas" type="b2602c69:ProjectViewProjectNode" />
               <item name="svg2canvas" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="svg2canvas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="svg2canvas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -212,13 +206,6 @@
               <item name="svg2canvas" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="canvg-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="svg2canvas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="svg2canvas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="canvg-master" type="462c0819:PsiDirectoryNode" />
-              <item name="rgbcolor.js" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
               <item name="svg2canvas" type="b2602c69:ProjectViewProjectNode" />
@@ -229,12 +216,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../canvg-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
@@ -288,12 +274,25 @@
       <workItem from="1525933647417" duration="2590000" />
       <workItem from="1525936342100" duration="2292000" />
       <workItem from="1525938657240" duration="8230000" />
-      <workItem from="1525998393364" duration="25014000" />
+      <workItem from="1525998393364" duration="29377000" />
+      <workItem from="1526203846861" duration="2235000" />
+      <workItem from="1526261926765" duration="5351000" />
+      <workItem from="1526267806202" duration="18000" />
+      <workItem from="1526267842045" duration="16000" />
+      <workItem from="1526267902093" duration="6808000" />
     </task>
+    <task id="LOCAL-00001" summary="修改说明">
+      <created>1526030933633</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526030933633</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38126000" />
+    <option name="totallyTimeSpent" value="56917000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,10 +309,8 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49933246" visible="true" weight="0.18364312" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32977304" />
-      <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32977304" />
-      <window_info id="Find" order="1" sideWeight="0.5006676" side_tool="true" weight="0.18364312" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32977304" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
@@ -324,8 +321,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Find" order="1" sideWeight="0.5006676" side_tool="true" weight="0.18364312" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,34 +333,64 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改说明" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$USER_HOME$/Desktop/canvg2.js</url>
           <line>30</line>
-          <properties lambdaOrdinal="-1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/test1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        <state relative-caret-position="15086">
+          <caret line="794" column="38" selection-start-line="794" selection-start-column="38" selection-end-line="794" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg21.js">
+    <entry file="file://$PROJECT_DIR$/test1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61085">
-          <caret line="3215" column="43" selection-start-line="3215" selection-start-column="43" selection-end-line="3215" selection-end-column="43" />
+        <state relative-caret-position="15086">
+          <caret line="794" column="38" selection-start-line="794" selection-start-column="38" selection-end-line="794" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4978">
+          <caret line="262" lean-forward="true" selection-start-line="262" selection-end-line="262" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/insert.code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2793">
+          <caret line="147" column="51" lean-forward="true" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16473">
+          <caret line="867" column="68" selection-start-line="867" selection-start-column="53" selection-end-line="867" selection-end-column="68" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -370,12 +399,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4712">
+          <caret line="248" column="17" lean-forward="true" selection-start-line="248" selection-start-column="17" selection-end-line="248" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15409">
+          <caret line="811" column="17" lean-forward="true" selection-start-line="811" selection-start-column="17" selection-end-line="811" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg21.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7543">
           <caret line="397" column="40" selection-start-line="397" selection-start-column="40" selection-end-line="397" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -397,9 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11381">
           <caret line="599" column="52" lean-forward="true" selection-start-line="599" selection-start-column="52" selection-end-line="599" selection-end-column="52" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -407,9 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,31 +468,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg21.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg21.js" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6061">
           <caret line="319" column="31" selection-start-line="319" selection-start-column="26" selection-end-line="319" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -466,19 +493,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/on1.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg-master/rgbcolor.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/canvg-master/canvg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="3153" column="17" lean-forward="true" selection-start-line="3153" selection-start-column="17" selection-end-line="3153" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -486,22 +504,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/insert.code.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2793">
-          <caret line="147" column="51" lean-forward="true" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svg/box_info3.svg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -520,16 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg-master/canvg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="3344" column="59" selection-start-line="3344" selection-start-column="59" selection-end-line="3344" selection-end-column="59" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -537,23 +531,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg-master/stackblur.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg21.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="869">
-          <caret line="2539" lean-forward="true" selection-start-line="2539" selection-end-line="2539" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg21.js" />
     <entry file="file://$PROJECT_DIR$/src/canvg-master/flashcanvas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -563,82 +541,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/canvg-master/rgbcolor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2960">
+        <state relative-caret-position="19">
           <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/box_info2.svg">
+    <entry file="file://$PROJECT_DIR$/src/canvg-master/StackBlur.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2242">
+          <caret line="50" column="82" lean-forward="true" selection-start-line="50" selection-start-column="82" selection-end-line="50" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg-master/stackblur.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="54" lean-forward="true" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/rec1.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/box_info1.svg">
+    <entry file="file://$PROJECT_DIR$/svg/svg-logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/box_info.svg">
+    <entry file="file://$PROJECT_DIR$/svg/on1.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/qunee_h5.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/svg/oval.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/pool.svg">
+    <entry file="file://$PROJECT_DIR$/svg/fans_s.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/svg/nonetransparent.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svg/on.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svg/lightpanel.svg">
+    <entry file="file://$PROJECT_DIR$/svg/box_info.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/svg/image7.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
-          <caret line="1514" column="94" lean-forward="true" selection-start-line="1514" selection-start-column="94" selection-end-line="1514" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svg/box_info4.svg">
+    <entry file="file://$PROJECT_DIR$/svg/lightpanel.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="223" column="20" selection-start-line="223" selection-start-column="11" selection-end-line="223" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" selection-start-line="23" selection-end-line="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/svg/A.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/canvg-master/StackBlur.js">
+    <entry file="file://$PROJECT_DIR$/src/insert.code.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4921">
-          <caret line="367" column="9" lean-forward="true" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
+        <state relative-caret-position="685">
+          <caret line="147" column="51" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/rec.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg-master/canvg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="2858" column="17" lean-forward="true" selection-start-line="2840" selection-end-line="2858" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/test.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="166" column="24" lean-forward="true" selection-start-line="166" selection-start-column="24" selection-end-line="166" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/added.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/canvg2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="763" column="42" lean-forward="true" selection-start-line="763" selection-start-column="42" selection-end-line="763" selection-end-column="42" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svg/d.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
         </state>
       </provider>
     </entry>
