@@ -7,7 +7,6 @@
     <meta name="keyword" content="html5,canvas,javascript,svg">
     <meta name="description"
           content="SVG to HTML5 Canvas Converter based on canvg.js, can be used in Qunee for HTML5 as node image">
-    <link rel="stylesheet" href="http://qunee.com/js/bootstrap/css/bootstrap.min.css"/>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="src/canvg-master/flashcanvas.js"></script>
     <![endif]-->
@@ -21,10 +20,8 @@
 
         .page {
             padding: 10px;
-            position: absolute;
+            height: calc(100vh - 80px);
             width: 100%;
-            top: 0px;
-            bottom: 0px;
         }
 
         div, textarea, canvas {
@@ -50,14 +47,10 @@
             padding: 0px 10px;
 
         }
-
-        .center h1 {
-            text-align: center;
-        }
-
         .right {
             width: 24%;
             background-color: #EEE;
+            position: relative;
         }
 
         .right > textarea {
@@ -101,10 +94,24 @@
             background-color: #EEE;
             display: inline-block;
         }
-
+        .btn{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 6px 15px;
+            border: none;
+            background: #38f;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
+<header style=" box-sizing: border-box; width: 100%; height: 60px; line-height: 60px; padding-left: 10px; font-size: 26px">
+    <span id="title">SVG to Canvas Converter</span>
+</header>
 <div id="page" class="page">
     <div class="left">
         <canvas id="canvas"></canvas>
@@ -113,21 +120,10 @@
         </div>
     </div>
     <div class="center">
-        <table style="width: 100%; height: 100%;" cellspacing="0">
-            <tr style="height: 20%;">
-                <td>
-                    <h1>SVG to Canvas Converter</h1>
-                </td>
-            </tr>
-            <tr style="height: 80%">
-                <td>
-                    <div id="q-canvas"></div>
-                </td>
-            </tr>
-        </table>
-
+        <div id="q-canvas"></div>
     </div>
     <div class="right">
+        <button class="btn" onclick="updateCode()">保存</button>
         <textarea id="code" spellcheck='false'></textarea>
     </div>
 </div>
@@ -340,11 +336,16 @@
             }
         }
     };
+
+    function updateCode() {
+        // console.log(code_out.value, 'test');
+        this.updateGraph();
+    }
 </script>
 <script src="src/canvg-master/qunee-min.js"></script>
 <script>
     var graph = new Q.Graph('q-canvas');
-    graph.maxScale = 20;
+    graph.maxScale = 10;
     var hello = graph.createNode("SVG Files", -100, 0);
     var qunee = graph.createText("Canvas Code", 100, 0);
     qunee.setStyle(Q.Styles.LABEL_BORDER, 0.5);

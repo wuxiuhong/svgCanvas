@@ -1,22 +1,19 @@
 /*
  * canvg.js - Javascript SVG parser and renderer on Canvas
  * MIT Licensed
- * Gabe Lerner (gabelerner@gmail.com)
- * http://code.google.com/p/canvg/
- *
- * Requires: rgbcolor.js - http://www.phpied.com/rgb-color-parser-in-javascript/
+ * @author wendyMo
  */
 (function (global, factory) {
 
     'use strict';
     // export as AMD...
     if (typeof define !== 'undefined' && define.amd) {
-        define('canvgModule', ['rgbcolor', 'stackblur'], factory);
+        define('canvgModule', ['canvg-master/rgbcolor', 'stackblur'], factory);
     }
 
     // ...or as browserify
     else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = factory(require('rgbcolor'), require('stackblur'));
+        module.exports = factory(require('canvg-master/rgbcolor'), require('canvg-master/StackBlur'));
     }
     else {
         global.canvg = factory(global.RGBColor, global.stackBlur);
@@ -893,7 +890,7 @@
 
                 // don't render visibility=hidden
                 if (this.style('visibility').value == 'hidden') return;
-
+                var shadowBlurInner = false;
                 ctx.save2();
                 // transform
                 if (this.attribute('transform').hasValue()) {
@@ -909,12 +906,18 @@
                         var fillStyle = this.style('fill');
                         if (fillStyle.value == 'currentColor') fillStyle.value = this.style('color').value;
                         if (fillStyle.value != 'inherit') ctx.shadowColor2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
+                        if (filter.children.length && ((filter.children[0].attribute('result').value).indexOf('shadowBlurInner')) > -1) {
+                            ctx.globalCompositeOperation2 = 'source-atop';
+                            shadowBlurInner = true;
+                        }
                         filter.apply(ctx, this);
                     }
+
                 }
                 this.setContext(ctx);
                 this.renderChildren(ctx);
                 this.clearContext(ctx);
+                if (shadowBlurInner) ctx.globalCompositeOperation2 = 'source-over';
                 ctx.restore2();
             }
 
@@ -1015,19 +1018,29 @@
 
             this.setContext = function (ctx) {
                 // fill
-                if (this.style('fill').isUrlDefinition()) {
-                    var fs = this.style('fill').getFillStyleDefinition(this, this.style('fill-opacity'));
-                    if (fs != null) ctx.fillStyle2 = fs;
+                var shadowInner = false;
+                if (this.style('filter').hasValue()) {
+                    var filter = this.style('filter').getDefinition();
+                    if ((filter != null) && filter.children.length && ((filter.children[0].attribute('result').value).indexOf('shadowBlurInner')) > -1) {
+                        shadowInner = true;
+                    }
                 }
-                else if (this.style('fill').hasValue()) {
-                    var fillStyle = this.style('fill');
-                    if (fillStyle.value == 'currentColor') fillStyle.value = this.style('color').value;
-                    if (fillStyle.value != 'inherit') ctx.fillStyle2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
-                }
-                if (this.style('fill-opacity').hasValue()) {
-                    var fillStyle = new svg.Property('fill', ctx.fillStyle2);
-                    fillStyle = fillStyle.addOpacity(this.style('fill-opacity'));
-                    ctx.fillStyle2 = fillStyle.value;
+                if (!shadowInner) {
+                    if (this.style('fill').hasValue()) {
+                        if (this.style('fill').isUrlDefinition()) {
+                            var fs = this.style('fill').getFillStyleDefinition(this, this.style('fill-opacity'));
+                            if (fs != null && !shadowInner) ctx.fillStyle2 = fs;
+                        } else {
+                            var fillStyle = this.style('fill');
+                            if (fillStyle.value == 'currentColor') fillStyle.value = this.style('color').value;
+                            if (fillStyle.value != 'inherit') ctx.fillStyle2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
+                        }
+                    }
+                    if (this.style('fill-opacity').hasValue()) {
+                        var fillStyle = new svg.Property('fill', ctx.fillStyle2);
+                        fillStyle = fillStyle.addOpacity(this.style('fill-opacity'));
+                        ctx.fillStyle2 = fillStyle.value;
+                    }
                 }
 
                 // stroke
@@ -1254,20 +1267,28 @@
                 var ry = this.attribute('ry').toPixels('y');
                 if (this.attribute('rx').hasValue() && !this.attribute('ry').hasValue()) ry = rx;
                 if (this.attribute('ry').hasValue() && !this.attribute('rx').hasValue()) rx = ry;
+
                 rx = Math.min(rx, width / 2.0);
                 ry = Math.min(ry, height / 2.0);
                 if (ctx != null) {
-                    ctx.beginPath2();
-                    ctx.moveTo2(x + rx, y);
-                    ctx.lineTo2(x + width - rx, y);
-                    ctx.quadraticCurveTo2(x + width, y, x + width, y + ry)
-                    ctx.lineTo2(x + width, y + height - ry);
-                    ctx.quadraticCurveTo2(x + width, y + height, x + width - rx, y + height)
-                    ctx.lineTo2(x + rx, y + height);
-                    ctx.quadraticCurveTo2(x, y + height, x, y + height - ry)
-                    ctx.lineTo2(x, y + ry);
-                    ctx.quadraticCurveTo2(x, y, x + rx, y)
-                    ctx.closePath2();
+                    // 判断半径与宽度一半对比，显示圆
+                    if (rx > (width / 2) || (rx == width / 2)) {
+                        ctx.beginPath2();
+                        ctx.arc2(x + width - rx, y + height - rx, rx, 0, Math.PI * 2, true);
+                        ctx.closePath2();
+                    } else {
+                        ctx.beginPath2();
+                        ctx.moveTo2(x + rx, y);
+                        ctx.lineTo2(x + width - rx, y);
+                        ctx.quadraticCurveTo2(x + width, y, x + width, y + ry)
+                        ctx.lineTo2(x + width, y + height - ry);
+                        ctx.quadraticCurveTo2(x + width, y + height, x + width - rx, y + height)
+                        ctx.lineTo2(x + rx, y + height);
+                        ctx.quadraticCurveTo2(x, y + height, x, y + height - ry)
+                        ctx.lineTo2(x, y + ry);
+                        ctx.quadraticCurveTo2(x, y, x + rx, y)
+                        ctx.closePath2();
+                    }
                 }
 
                 return new svg.BoundingBox(x, y, x + width, y + height);
@@ -1869,35 +1890,35 @@
                     g.addColorStop(stopsContainer.stops[i].offset, addParentOpacity(stopsContainer.stops[i].color));
                 }
 
-                if (this.attribute('gradientTransform').hasValue()) {
-                    // render as transformed pattern on temporary canvas
-                    var rootView = svg.ViewPort.viewPorts[0];
-
-                    var rect = new svg.Element.rect();
-                    rect.attributes['x'] = new svg.Property('x', -svg.MAX_VIRTUAL_PIXELS / 3.0);
-                    rect.attributes['y'] = new svg.Property('y', -svg.MAX_VIRTUAL_PIXELS / 3.0);
-                    rect.attributes['width'] = new svg.Property('width', svg.MAX_VIRTUAL_PIXELS);
-                    rect.attributes['height'] = new svg.Property('height', svg.MAX_VIRTUAL_PIXELS);
-
-                    var group = new svg.Element.g();
-                    group.attributes['transform'] = new svg.Property('transform', this.attribute('gradientTransform').value);
-                    group.children = [rect];
-
-                    var tempSvg = new svg.Element.svg();
-                    tempSvg.attributes['x'] = new svg.Property('x', 0);
-                    tempSvg.attributes['y'] = new svg.Property('y', 0);
-                    tempSvg.attributes['width'] = new svg.Property('width', rootView.width);
-                    tempSvg.attributes['height'] = new svg.Property('height', rootView.height);
-                    tempSvg.children = [group];
-
-                    var c = document.createElement('canvas');
-                    c.width = rootView.width;
-                    c.height = rootView.height;
-                    var tempCtx = c.getContext('2d');
-                    tempCtx.fillStyle2 = g;
-                    tempSvg.render(tempCtx);
-                    return tempCtx.createPattern2(c, 'no-repeat');
-                }
+                // if (this.attribute('gradientTransform').hasValue()) {
+                //     // render as transformed pattern on temporary canvas
+                //     var rootView = svg.ViewPort.viewPorts[0];
+                //
+                //     var rect = new svg.Element.rect();
+                //     rect.attributes['x'] = new svg.Property('x', -svg.MAX_VIRTUAL_PIXELS / 3.0);
+                //     rect.attributes['y'] = new svg.Property('y', -svg.MAX_VIRTUAL_PIXELS / 3.0);
+                //     rect.attributes['width'] = new svg.Property('width', svg.MAX_VIRTUAL_PIXELS);
+                //     rect.attributes['height'] = new svg.Property('height', svg.MAX_VIRTUAL_PIXELS);
+                //
+                //     var group = new svg.Element.g();
+                //     group.attributes['transform'] = new svg.Property('transform', this.attribute('gradientTransform').value);
+                //     group.children = [rect];
+                //
+                //     var tempSvg = new svg.Element.svg();
+                //     tempSvg.attributes['x'] = new svg.Property('x', 0);
+                //     tempSvg.attributes['y'] = new svg.Property('y', 0);
+                //     tempSvg.attributes['width'] = new svg.Property('width', rootView.width);
+                //     tempSvg.attributes['height'] = new svg.Property('height', rootView.height);
+                //     tempSvg.children = [group];
+                //
+                //     var c = document.createElement('canvas');
+                //     c.width = rootView.width;
+                //     c.height = rootView.height;
+                //     var tempCtx = c.getContext('2d');
+                //     tempCtx.fillStyle2 = g;
+                //     tempSvg.render(tempCtx);
+                //     return tempCtx.createPattern2(c, 'no-repeat');
+                // }
 
                 return g;
             }
@@ -1908,11 +1929,8 @@
         svg.Element.linearGradient = function (node) {
             this.base = svg.Element.GradientBase;
             this.base(node);
-            console.log(node, 'test');
             this.getGradient = function (ctx, element) {
                 var bb = this.gradientUnits == 'objectBoundingBox' ? element.getBoundingBox() : null;
-                console.log(bb, ' 1111111111111111111111111111111111111111111111111');
-
                 if (!this.attribute('x1').hasValue()
                     && !this.attribute('y1').hasValue()
                     && !this.attribute('x2').hasValue()
@@ -1957,6 +1975,7 @@
                 var cx = (this.gradientUnits == 'objectBoundingBox'
                     ? bb.x() + bb.width() * this.attribute('cx').numValue()
                     : this.attribute('cx').toPixels('x'));
+
                 var cy = (this.gradientUnits == 'objectBoundingBox'
                     ? bb.y() + bb.height() * this.attribute('cy').numValue()
                     : this.attribute('cy').toPixels('y'));
@@ -2829,6 +2848,16 @@
         }
         svg.Element.feComposite.prototype = new svg.Element.ElementBase;
 
+        svg.Element.feBlend = function (node) {
+            this.base = svg.Element.ElementBase;
+            this.base(node);
+
+            this.apply = function (ctx, x, y, width, height) {
+                // TODO: implement
+            }
+        }
+        svg.Element.feBlend.prototype = new svg.Element.ElementBase;
+
         svg.Element.feColorMatrix = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
@@ -2865,7 +2894,7 @@
             }
 
             this.apply = function (ctx, x, y, width, height) {
-                ctx.shadowColor2 = 'rgba(' + matrix[4] + ', ' + matrix[9] + ', ' + matrix[14] + ', ' + matrix[18] + ')';
+                ctx.shadowColor2 = 'rgba(' + (matrix[4] * 255).toFixed(0) + ', ' + (matrix[9] * 255).toFixed(0) + ', ' + (matrix[14] * 255).toFixed(0) + ', ' + matrix[18] + ')';
             }
         }
         svg.Element.feColorMatrix.prototype = new svg.Element.ElementBase;
