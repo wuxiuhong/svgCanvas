@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="115px" viewBox="0 0 198 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>btn/tff_fan/on copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M23,0 L27,0 C39.7025492,-2.33342044e-15 50,10.2974508 50,23 L50,77 C50,89.7025492 39.7025492,100 27,100 L23,100 C10.2974508,100 1.55561363e-15,89.7025492 0,77 L0,23 C-1.55561363e-15,10.2974508 10.2974508,2.33342044e-15 23,0 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="50" height="100" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M23,0 L27,0 C39.7025492,-2.33342044e-15 50,10.2974508 50,23 L50,77 C50,89.7025492 39.7025492,100 27,100 L23,100 C10.2974508,100 1.55561363e-15,89.7025492 0,77 L0,23 C-1.55561363e-15,10.2974508 10.2974508,2.33342044e-15 23,0 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-4" y="-4" width="58" height="108">
+            <use xlink:href="#path-3" fill="black"></use>
+            <rect x="-4" y="-4" width="58" height="108" fill="white"></rect>
+        </mask>
+    </defs>
+    <g id="btn/tff_fan/on-copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="6,3">
+        <g id="icon_light_switch_left" transform="translate(0.000000, 6.000000)" fill="#E4E4E4" stroke="#AAA097" stroke-width="8">
+            <use id="Rectangle-3" mask="url(#mask-2)" xlink:href="#path-1"></use>
+        </g>
+        <g id="icon_light_switch_left-copy" transform="translate(71.000000, 6.000000)" fill="#E4E4E4" stroke="#AAA097" stroke-width="4">
+            <path d="M23,0 L27,0 C39.7025492,-2.33342044e-15 50,10.2974508 50,23 L50,77 C50,89.7025492 39.7025492,100 27,100 L23,100 C10.2974508,100 1.55561363e-15,89.7025492 0,77 L0,23 C-1.55561363e-15,10.2974508 10.2974508,2.33342044e-15 23,0 Z" id="Rectangle-3"></path>
+        </g>
+        <g id="icon_light_switch_left-copy-2" transform="translate(143.000000, 6.000000)" fill="#E4E4E4" stroke="#AAA097" stroke-width="8">
+            <use id="Rectangle-3" mask="url(#mask-4)" xlink:href="#path-3"></use>
+        </g>
+    </g>
+</svg>

@@ -883,41 +883,53 @@
                 return s || svg.EmptyProperty;
             }
 
+            /**
+             * 渲染读取具体属性内容，转化canvas代码
+             * @param ctx 当前canvas对象
+             */
             // base render
             this.render = function (ctx) {
+
                 // don't render display=none
                 if (this.style('display').value == 'none') return;
 
                 // don't render visibility=hidden
                 if (this.style('visibility').value == 'hidden') return;
-                var shadowBlurInner = false;
+                var shadowInner = false;
                 ctx.save2();
-                // transform
+                // 存在旋转属性，进行属性转化canvas处理
                 if (this.attribute('transform').hasValue()) {
                     var transform = new svg.Transform(this.attribute('transform').value);
                     transform.apply(ctx);
                 } else if (this.attribute('mask').hasValue()) { // mask
+                    console.log(ctx.name, '666666666666666666')
                     var mask = this.attribute('mask').getDefinition();
                     if (mask != null) mask.apply(ctx, this);
                 }
+                // 存在filter即阴影属性，进行属性转化canvas处理
                 else if (this.style('filter').hasValue()) { // filter
                     var filter = this.style('filter').getDefinition();
+                    // 存在filter阴影url，调取filter处理来进行canvas的阴影转化
                     if (filter != null) {
                         var fillStyle = this.style('fill');
-                        if (fillStyle.value == 'currentColor') fillStyle.value = this.style('color').value;
-                        if (fillStyle.value != 'inherit') ctx.shadowColor2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
-                        if (filter.children.length && ((filter.children[0].attribute('result').value).indexOf('shadowBlurInner')) > -1) {
+                        // 如果不存在feColorMatrix，需要进行阴影颜色赋值
+                        if (fillStyle.value && !(filter.children.find((item) => item.type === 'feColorMatrix'))) {
+                            ctx.shadowColor2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
+                        }
+                        // 判断是否是内阴影；是，则处理
+                        if (filter.children.find((item) => ((item.attribute('result').value).indexOf('Inner')) > -1)) {
                             ctx.globalCompositeOperation2 = 'source-atop';
-                            shadowBlurInner = true;
+                            shadowInner = true;
                         }
                         filter.apply(ctx, this);
                     }
 
                 }
-                this.setContext(ctx);
-                this.renderChildren(ctx);
-                this.clearContext(ctx);
-                if (shadowBlurInner) ctx.globalCompositeOperation2 = 'source-over';
+                this.setContext(ctx);    // 设置当前上下文
+                this.renderChildren(ctx); // 渲染当前canvas
+                this.clearContext(ctx); // 清除上下文
+                // 如果是内阴影
+                if (shadowInner) ctx.globalCompositeOperation2 = 'source-over';
                 ctx.restore2();
             }
 
@@ -1012,21 +1024,27 @@
             }
         }
 
+        /**
+         * 渲染基础element
+         * @param node
+         * @constructor
+         */
         svg.Element.RenderedElementBase = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
 
             this.setContext = function (ctx) {
-                // fill
+                // 判断是否存在阴影效果以及内阴影还是外阴影
                 var shadowInner = false;
                 if (this.style('filter').hasValue()) {
                     var filter = this.style('filter').getDefinition();
-                    if ((filter != null) && filter.children.length && ((filter.children[0].attribute('result').value).indexOf('shadowBlurInner')) > -1) {
-                        shadowInner = true;
+                    if (filter != null && filter.children.length) {
+                        if (filter.children.find((item) => ((item.attribute('result').value).indexOf('Inner')) > -1)) shadowInner = true;
                     }
                 }
+                // 是内阴影，fill填充不进行赋值
                 if (!shadowInner) {
-                    if (this.style('fill').hasValue()) {
+                    if (this.attribute('fill').hasValue() && !this.attribute('mask').isUrlDefinition()) {
                         if (this.style('fill').isUrlDefinition()) {
                             var fs = this.style('fill').getFillStyleDefinition(this, this.style('fill-opacity'));
                             if (fs != null && !shadowInner) ctx.fillStyle2 = fs;
@@ -1036,6 +1054,7 @@
                             if (fillStyle.value != 'inherit') ctx.fillStyle2 = (fillStyle.value == 'none' ? 'rgba(0,0,0,0)' : fillStyle.value);
                         }
                     }
+                    // 填充fill，同时存在透明度
                     if (this.style('fill-opacity').hasValue()) {
                         var fillStyle = new svg.Property('fill', ctx.fillStyle2);
                         fillStyle = fillStyle.addOpacity(this.style('fill-opacity'));
@@ -1044,7 +1063,7 @@
                 }
 
                 // stroke
-                if (this.style('stroke').isUrlDefinition()) {
+                if (this.style('stroke').isUrlDefinition() && !this.attribute('mask').isUrlDefinition()) {
                     var fs = this.style('stroke').getFillStyleDefinition(this, this.style('stroke-opacity'));
                     if (fs != null) ctx.strokeStyle2 = fs;
                 }
@@ -1099,7 +1118,7 @@
                         this.style('font-family').value).toString();
                 }
 
-                // transform
+                // transform, 旋转属性显示位置修改
                 // if (this.attribute('transform').hasValue()) {
                 //     var transform = new svg.Transform(this.attribute('transform').value);
                 //     transform.apply(ctx);
@@ -1253,7 +1272,11 @@
         }
         svg.Element.svg.prototype = new svg.Element.RenderedElementBase;
 
-        // rect element
+        /**
+         * 计算相关弧度，判断半径与宽度一半对比，显示圆
+         * rect element
+         * @param node
+         */
         svg.Element.rect = function (node) {
             this.base = svg.Element.PathElementBase;
             this.base(node);
@@ -1267,7 +1290,7 @@
                 var ry = this.attribute('ry').toPixels('y');
                 if (this.attribute('rx').hasValue() && !this.attribute('ry').hasValue()) ry = rx;
                 if (this.attribute('ry').hasValue() && !this.attribute('rx').hasValue()) rx = ry;
-
+                // 计算水平半经/垂直半径
                 rx = Math.min(rx, width / 2.0);
                 ry = Math.min(ry, height / 2.0);
                 if (ctx != null) {
@@ -1296,7 +1319,11 @@
         }
         svg.Element.rect.prototype = new svg.Element.PathElementBase;
 
-        // circle element
+        /**
+         * 圆处理
+         * circle element
+         * @param node svg的节点
+         */
         svg.Element.circle = function (node) {
             this.base = svg.Element.PathElementBase;
             this.base(node);
@@ -1890,6 +1917,9 @@
                     g.addColorStop(stopsContainer.stops[i].offset, addParentOpacity(stopsContainer.stops[i].color));
                 }
 
+                /**
+                 * 隐藏对gradientTransform处理，gradientTransform和圆处理冲突了
+                 */
                 // if (this.attribute('gradientTransform').hasValue()) {
                 //     // render as transformed pattern on temporary canvas
                 //     var rootView = svg.ViewPort.viewPorts[0];
@@ -1931,6 +1961,7 @@
             this.base(node);
             this.getGradient = function (ctx, element) {
                 var bb = this.gradientUnits == 'objectBoundingBox' ? element.getBoundingBox() : null;
+                // 处理相关属性值
                 if (!this.attribute('x1').hasValue()
                     && !this.attribute('y1').hasValue()
                     && !this.attribute('x2').hasValue()
@@ -1960,11 +1991,15 @@
         }
         svg.Element.linearGradient.prototype = new svg.Element.GradientBase;
 
-        // radial gradient element
+        /**
+         * 圆渐变， radial gradient element
+         * @param node 当前圆渐变的节点
+         */
         svg.Element.radialGradient = function (node) {
             this.base = svg.Element.GradientBase;
             this.base(node);
 
+            // 处理渐变，属性转换
             this.getGradient = function (ctx, element) {
                 var bb = element.getBoundingBox();
 
@@ -2526,7 +2561,6 @@
                 this.img = svg.ajax(href);
                 this.loaded = true;
             }
-
             this.renderChildren = function (ctx) {
                 var x = this.attribute('x').toPixels('x');
                 var y = this.attribute('y').toPixels('y');
@@ -2549,11 +2583,13 @@
                         this.img.height,
                         0,
                         0);
-                    ctx.drawImage2(this.img, 0, 0);
+
+                    if (this.img) {
+                        ctx.drawImage2(this.img, 0, 0);
+                    }
                 }
                 ctx.restore2();
             }
-
             this.getBoundingBox = function () {
                 var x = this.attribute('x').toPixels('x');
                 var y = this.attribute('y').toPixels('y');
@@ -2564,18 +2600,19 @@
         }
         svg.Element.image.prototype = new svg.Element.RenderedElementBase;
 
-        // group element
+        /**
+         * svg的g 组件节点处理 group element
+         * @param node
+         */
         svg.Element.g = function (node) {
             this.base = svg.Element.RenderedElementBase;
             this.base(node);
 
             this.getBoundingBox = function () {
                 var bb = new svg.BoundingBox();
+                // 判断是否存在子节点，循环处理
                 for (var i = 0; i < this.children.length; i++) {
                     bb.addBoundingBox(this.children[i].getBoundingBox());
-                    // if (this.children[i].type === 'g') {
-                    //     bb.addBoundingBox(this.children[i].getBoundingBox());
-                    // }
                 }
                 return bb;
             };
@@ -2702,6 +2739,7 @@
             this.base(node);
 
             this.apply = function (ctx, element) {
+                console.log(ctx.name, '888888')
                 // render as temp svg
                 var x = this.attribute('x').toPixels('x');
                 var y = this.attribute('y').toPixels('y');
@@ -2723,19 +2761,20 @@
                 var mask = element.attribute('mask').value;
                 element.attribute('mask').value = '';
 
-                var cMask = document.createElement('canvas');
-                cMask.width = x + width;
-                cMask.height = y + height;
-                var maskCtx = cMask.getContext('2d');
-                this.renderChildren(maskCtx);
+                // var cMask = document.createElement('canvas');
+                // cMask.width = x + width;
+                // cMask.height = y + height;
+                // var maskCtx = cMask.getContext('2d');
+                // this.renderChildren(maskCtx);
 
                 var c = document.createElement('canvas');
                 c.width = x + width;
                 c.height = y + height;
                 var tempCtx = c.getContext('2d');
+                console.log(tempCtx,'22222222222222222222');
                 element.render(tempCtx);
                 tempCtx.globalCompositeOperation2 = 'destination-in';
-                tempCtx.fillStyle2 = maskCtx.createPattern(cMask, 'no-repeat');
+                // tempCtx.fillStyle2 = maskCtx.createPattern(cMask, 'no-repeat');
                 tempCtx.fillRect2(0, 0, x + width, y + height);
 
                 ctx.fillStyle2 = tempCtx.createPattern2(c, 'no-repeat');
@@ -2794,7 +2833,10 @@
         }
         svg.Element.clipPath.prototype = new svg.Element.ElementBase;
 
-        // filters
+        /**
+         * 处理阴影节点处理 filters
+         * @param node 当前节点
+         */
         svg.Element.filter = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
@@ -2804,7 +2846,6 @@
                 var y = this.attribute('y1').toPixels('y', true);
                 var width = this.attribute('width').toPixels('x', true);
                 var height = this.attribute('height').toPixels('y', true);
-
 
                 // temporarily remove filter to avoid recursion
                 var filter = element.style('filter').value;
@@ -2863,7 +2904,8 @@
             this.base(node);
 
             var matrix = svg.ToNumberArray(this.attribute('values').value);
-            switch (this.attribute('type').valueOrDefault('matrix')) { // http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement
+            // http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement
+            switch (this.attribute('type').valueOrDefault('matrix')) {
                 case 'saturate':
                     var s = matrix[0];
                     matrix = [0.213 + 0.787 * s, 0.715 - 0.715 * s, 0.072 - 0.072 * s, 0, 0,
@@ -2893,16 +2935,21 @@
                     break;
             }
 
+            // 处理阴影颜色，将matrix 转化为rgb；
             this.apply = function (ctx, x, y, width, height) {
                 ctx.shadowColor2 = 'rgba(' + (matrix[4] * 255).toFixed(0) + ', ' + (matrix[9] * 255).toFixed(0) + ', ' + (matrix[14] * 255).toFixed(0) + ', ' + matrix[18] + ')';
             }
         }
         svg.Element.feColorMatrix.prototype = new svg.Element.ElementBase;
 
+        /**
+         * 阴影的模糊处理
+         * @param node 当前节点
+         */
         svg.Element.feGaussianBlur = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
-
+            // 获取svg的阴影模糊值
             this.blurRadius = Math.floor(this.attribute('stdDeviation').numValue());
             this.extraFilterDistance = this.blurRadius;
 
@@ -2912,6 +2959,7 @@
                     return;
                 }
                 ctx.canvas.id = svg.UniqueId();
+                // 赋值阴影模糊值
                 ctx.shadowBlur2 = this.blurRadius;
                 ctx.canvas.style.display = 'none';
                 document.body.appendChild(ctx.canvas);
@@ -2919,19 +2967,27 @@
         }
         svg.Element.feGaussianBlur.prototype = new svg.Element.ElementBase;
 
+        /**
+         * 阴影的偏移位置添加
+         * @param node 当前节点
+         */
         svg.Element.feOffset = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
             this.dx = Math.floor(this.attribute('dx').numValue());
             this.dy = Math.floor(this.attribute('dy').numValue());
+            // 赋值x/y的偏移位置
             this.apply = function (ctx, x, y, width, height) {
                 ctx.shadowOffsetX2 = this.dx || 0;
                 ctx.shadowOffsetY2 = this.dy;
-                // document.body.removeChild(ctx.canvas);
             }
         }
         svg.Element.feOffset.prototype = new svg.Element.ElementBase;
 
+        /**
+         * 添加阴影层级关系
+         * @param node
+         */
         svg.Element.feMerge = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
@@ -3194,9 +3250,13 @@
 
     var code;
     var images;
-    var caches;
     var index = 0;
 
+    /**
+     * 生成相关代码
+     * @param str
+     * @param ctx
+     */
     function appendCode(str, ctx) {
         code += str;
     }
@@ -3225,15 +3285,6 @@
 
         function valueToString(v) {
             if (typeof v == 'string') {
-                if (!caches) {
-                    caches = {};
-                }
-                if (!caches[v]) {
-                    var name = 'str' + index++;
-                    appendCode('var ' + name + ' = "' + v.replace(/\"/g, "'") + '";\n');
-                    caches[v] = name;
-                }
-                //return caches[v];
                 return '"' + v.replace(/\"/g, "'") + '"';
             } else if (v instanceof CanvasGradient) {
                 return 'g';
@@ -3245,16 +3296,20 @@
                 if (!images) {
                     images = {};
                 }
-                if (!images[v.src]) {
-                    images[v.src] = v;
-                    v.name = 'img' + index++;
-                    appendCode('var ' + v.name + '= new Image();\n' + v.name + '.src = ' + valueToString(v.src) + ';\n', ctx);
-                }
+                // 图片处理
+                images[v.src] = v;
+                v.name = 'img' + index++;
+                appendCode('var ' + v.name + '= new Image();\n' + v.name + '.src = ' + valueToString(v.src) + ';\n', ctx);
                 return v.name;
             }
             return v;
         }
 
+        /**
+         * svg 转化canvas，并生成相关代码函数
+         * @param name
+         * @return {Function}
+         */
         function createFunction(name) {
             return function () {
                 //ctx.setTranslate(10, 10)
@@ -3270,9 +3325,9 @@
                     }
                 }
                 var ctxName = this.name;
+                // 渐变代码
                 if (name == 'createLinearGradient' || name == 'createRadialGradient') {
                     appendCode('var g = ' + ctxName + '.' + name + '(' + param + ');\n', this);
-                    console.log(name, arguments, '111111111111111111111111111');
                     var gradient = this[name].apply(this, arguments);
 
                     var ctx = this;
@@ -3290,6 +3345,9 @@
                     //.translate(0,0)
                 } else if (name == 'scale' && arguments[0] == 1 && arguments[1] == 1) {
                     //.translate(0,0)
+                } else if (name === 'setLineDash') {
+                    // 当线条为虚线时，处理参数为数组
+                    appendCode('' + ctxName + '.' + name + '([' + param + ']);\n', this);
                 } else {
                     appendCode('' + ctxName + '.' + name + '(' + param + ');\n', this);
                 }

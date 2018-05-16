@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="502px" height="123px" viewBox="0 0 502 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="69.6599676%" x2="50%" y2="-3.20950905%" id="linearGradient-1">
+            <stop stop-color="#FFE85D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FBC450" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="36.687748%" x2="50%" y2="-7.04371514%" id="linearGradient-2">
+            <stop stop-color="#FFE85D" offset="0%"></stop>
+            <stop stop-color="#D09B2C" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="202" y="15" width="80" height="80"></rect>
+        <filter x="-8.8%" y="-8.8%" width="117.5%" height="117.5%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="3" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.815686275   0 0 0 0 0.607843137   0 0 0 0 0.17254902  0 0 0 0.4 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="300" y="15" width="80" height="80"></rect>
+        <filter x="-13.1%" y="-11.9%" width="126.2%" height="126.2%" filterUnits="objectBoundingBox" id="filter-6">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.815686275   0 0 0 0 0.607843137   0 0 0 0 0.17254902  0 0 0 0.8 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="77.3164647%" y1="22.4584688%" x2="2.63227388%" y2="17.9433501%" id="linearGradient-7">
+            <stop stop-color="#FFE85D" offset="0%"></stop>
+            <stop stop-color="#D09B2C" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-8" x="399" y="15" width="80" height="80"></rect>
+        <filter x="-25.0%" y="-23.8%" width="150.0%" height="150.0%" filterUnits="objectBoundingBox" id="filter-9">
+            <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="4" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.90196079   0 0 0 0 0.752941191   0 0 0 0 0.262745112  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-11" fill-opacity="0.2" fill="url(#linearGradient-1)" x="8" y="14" width="80" height="80"></rect>
+        <rect id="Rectangle-11-Copy" fill="url(#linearGradient-1)" x="104" y="14" width="80" height="80"></rect>
+        <g id="Rectangle-11-Copy-2">
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <use stroke="url(#linearGradient-2)" stroke-width="2" xlink:href="#path-3"></use>
+        </g>
+        <g id="Rectangle-11-Copy-3">
+            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+            <use stroke="url(#linearGradient-2)" stroke-width="2" xlink:href="#path-5"></use>
+        </g>
+        <g id="Rectangle-11-Copy-4">
+            <use fill="black" fill-opacity="1" filter="url(#filter-9)" xlink:href="#path-8"></use>
+            <use stroke="url(#linearGradient-7)" stroke-width="6" xlink:href="#path-8"></use>
+        </g>
+    </g>
+</svg>

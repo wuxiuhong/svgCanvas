@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="136px" viewBox="0 0 316 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>panel</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="16.9094634%" y1="3.19499639%" x2="83.3238002%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F5C823" offset="0%"></stop>
+            <stop stop-color="#F83D3D" offset="52.8472724%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="2.0050578%" x2="50%" y2="97.005961%" id="linearGradient-2">
+            <stop stop-color="#FDF0A7" offset="0%"></stop>
+            <stop stop-color="#FFE85D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FDF0A7" offset="2.0050578%"></stop>
+            <stop stop-color="#FFE85D" offset="97.005961%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="panel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <rect id="Rectangle-10" fill-opacity="0.6" fill="url(#linearGradient-1)" x="36" y="36" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.4" fill="url(#linearGradient-2)" x="30" y="30" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.4" fill="url(#linearGradient-2)" x="24" y="24" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.4" fill="url(#linearGradient-3)" x="18" y="18" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.4" fill="url(#linearGradient-3)" x="12" y="12" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.4" fill="url(#linearGradient-2)" x="6" y="6" width="280" height="100"></rect>
+            <rect id="Rectangle-10" fill-opacity="0.6" fill="url(#linearGradient-1)" x="0" y="0" width="280" height="100"></rect>
+        </g>
+    </g>
+</svg>

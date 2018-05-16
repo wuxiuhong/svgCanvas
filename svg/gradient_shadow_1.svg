@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="115px" viewBox="0 0 99 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>logo_goldenfarm copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.8800578%" id="linearGradient-1">
+            <stop stop-color="#FFE85D" offset="0%"></stop>
+            <stop stop-color="#CF9A2C" offset="100%"></stop>
+        </linearGradient>
+        <path d="M97.8169949,50.0823153 L49.4994784,73.0956084 L1.18300509,50.0823153 C0.636360762,49.8209643 0,50.2140197 0,50.8138923 L0,90.8664474 C0,91.3922362 0.304618595,91.8706938 0.784497202,92.0980897 L48.2924794,114.727588 C49.0550691,115.090804 49.9449309,115.090804 50.7075206,114.727588 L98.216546,92.0980897 C98.6953814,91.8706938 99,91.3922362 99,90.8664474 L99,50.8138923 C99,50.3436663 98.6077514,50 98.1748174,50 C98.0569342,50 97.9348781,50.0257235 97.8169949,50.0823153 Z M86.8663737,67.8264018 C87.1876837,67.6741186 87.5601113,67.9046013 87.5601113,68.2564991 L87.5601113,83.6854686 C87.5601113,84.2719649 87.2210666,84.8059853 86.6858976,85.0601337 L49.4994784,102.772323 L12.3151456,85.0601337 C11.7799766,84.8059853 11.4398887,84.2719649 11.4398887,83.6854686 L11.4398887,68.2564991 C11.4398887,67.9046013 11.8123163,67.6741186 12.1336263,67.8264018 L49.4994784,85.6250223 L86.8663737,67.8264018 Z" id="path-2"></path>
+        <filter x="-10.1%" y="-12.3%" width="120.2%" height="130.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFE85D" offset="0%"></stop>
+            <stop stop-color="#CF9A2C" offset="100%"></stop>
+        </linearGradient>
+        <path d="M49.1533891,0 C48.6355895,0 48.1188012,0.164027093 47.6849418,0.494106304 L2.36432876,34.9468834 C1.81618933,35.3640387 1.90114083,36.213537 2.5210845,36.5132409 L48.6902012,58.8340881 C48.9824748,58.9768525 49.3232921,58.9768525 49.6155657,58.8340881 L95.7856938,36.5132409 C96.4046261,36.213537 96.4895776,35.3640387 95.9414382,34.9468834 L50.6198138,0.494106304 C50.1869657,0.164027093 49.6701774,0 49.1533891,0 Z M48.7620054,46.5391438 L23.2603747,34.2087615 C22.816402,33.9951212 22.7557223,33.386601 23.1481174,33.0879097 L49.1523778,13.32062 L75.1576496,33.0879097 C75.5500446,33.386601 75.4893649,33.9951212 75.0443809,34.2087615 L49.5437615,46.5391438 C49.4203796,46.598882 49.2868843,46.6282449 49.1533891,46.6282449 C49.0188826,46.6282449 48.8853874,46.598882 48.7620054,46.5391438 Z" id="path-5"></path>
+        <filter x="-10.6%" y="-13.6%" width="121.2%" height="133.9%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="logo_goldenfarm-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo">
+            <g id="Fill-16">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+            </g>
+            <path d="M49.4603108,0 C48.9505225,0 48.4417298,0.164588117 48.014583,0.495796302 L44,3.60569892 L44,109.885935 L48.307313,112.008309 C49.0351553,112.366949 49.8844706,112.366949 50.6123129,112.008309 L54.9196259,109.885935 L54.9196259,3.60569892 L50.9040472,0.495796302 C50.4778961,0.164588117 49.9691034,0 49.4603108,0 Z" id="Clip-19" fill="url(#linearGradient-4)"></path>
+            <g id="Fill-21">
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-5"></use>
+            </g>
+        </g>
+    </g>
+</svg>
