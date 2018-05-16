@@ -897,12 +897,13 @@
                 if (this.style('visibility').value == 'hidden') return;
                 var shadowInner = false;
                 ctx.save2();
+                this.setContext(ctx);    // 设置当前上下文
                 // 存在旋转属性，进行属性转化canvas处理
                 if (this.attribute('transform').hasValue()) {
                     var transform = new svg.Transform(this.attribute('transform').value);
                     transform.apply(ctx);
+                    this.renderChildren(ctx); // 渲染当前canvas
                 } else if (this.attribute('mask').hasValue()) { // mask
-                    console.log(ctx.name, '666666666666666666')
                     var mask = this.attribute('mask').getDefinition();
                     if (mask != null) mask.apply(ctx, this);
                 }
@@ -923,10 +924,10 @@
                         }
                         filter.apply(ctx, this);
                     }
-
+                    this.renderChildren(ctx); // 渲染当前canvas
+                } else {
+                    this.renderChildren(ctx); // 渲染当前canvas
                 }
-                this.setContext(ctx);    // 设置当前上下文
-                this.renderChildren(ctx); // 渲染当前canvas
                 this.clearContext(ctx); // 清除上下文
                 // 如果是内阴影
                 if (shadowInner) ctx.globalCompositeOperation2 = 'source-over';
@@ -1044,7 +1045,7 @@
                 }
                 // 是内阴影，fill填充不进行赋值
                 if (!shadowInner) {
-                    if (this.attribute('fill').hasValue() && !this.attribute('mask').isUrlDefinition()) {
+                    if (this.style('fill').hasValue() && !this.attribute('mask').isUrlDefinition()) {
                         if (this.style('fill').isUrlDefinition()) {
                             var fs = this.style('fill').getFillStyleDefinition(this, this.style('fill-opacity'));
                             if (fs != null && !shadowInner) ctx.fillStyle2 = fs;
@@ -2760,7 +2761,7 @@
                 // temporarily remove mask to avoid recursion
                 var mask = element.attribute('mask').value;
                 element.attribute('mask').value = '';
-
+                //
                 // var cMask = document.createElement('canvas');
                 // cMask.width = x + width;
                 // cMask.height = y + height;
@@ -2771,7 +2772,6 @@
                 c.width = x + width;
                 c.height = y + height;
                 var tempCtx = c.getContext('2d');
-                console.log(tempCtx,'22222222222222222222');
                 element.render(tempCtx);
                 tempCtx.globalCompositeOperation2 = 'destination-in';
                 // tempCtx.fillStyle2 = maskCtx.createPattern(cMask, 'no-repeat');
