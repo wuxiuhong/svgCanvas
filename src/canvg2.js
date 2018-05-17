@@ -1040,7 +1040,7 @@
                 if (this.style('filter').hasValue()) {
                     var filter = this.style('filter').getDefinition();
                     if (filter != null && filter.children.length) {
-                        if (filter.children.find((item) => ((item.attribute('result').value).indexOf('Inner')) > -1)) shadowInner = true;
+                        if (filter.children.find((item) => ((item.attribute('result').value).indexOf('Inner')) > -1 || (item.type == 'feMorphology'))) shadowInner = true;
                     }
                 }
                 // 是内阴影，fill填充不进行赋值
@@ -1295,12 +1295,34 @@
                 rx = Math.min(rx, width / 2.0);
                 ry = Math.min(ry, height / 2.0);
                 if (ctx != null) {
-                    // 判断半径与宽度一半对比，显示圆
-                    if (rx > (width / 2) || (rx == width / 2)) {
+                    // 判断半径与宽度/高度一半对比，显示圆
+                    if (rx > (width / 2) || (rx == width / 2) && (ry > (height / 2) || (ry == height / 2))) {
                         ctx.beginPath2();
-                        ctx.arc2(x + width - rx, y + height - rx, rx, 0, Math.PI * 2, true);
+                        ctx.arc2(x + width - rx, y + height - ry, rx, 0, Math.PI * 2, true);
                         ctx.closePath2();
                     } else {
+                        // 2边为圆角
+                        // if (ry > (height / 2) || ry == height / 2) {
+                        //     ctx.beginPath2();
+                        //     ctx.moveTo2(x + ry, y);
+                        //     ctx.lineTo2(x + width - ry, y);
+                        //     ctx.arc2(x + width - ry, y + height - ry, ry, 0.5 * Math.PI, 3 / 2 * Math.PI, true);
+                        //     ctx.lineTo2(x + width - ry, y + height);
+                        //     ctx.lineTo2(x + ry, y + height);
+                        //     ctx.arc2(x + ry, y + height - ry, ry, 0.5 * Math.PI, Math.PI * 3 / 2);
+                        //     ctx.closePath2();
+                        // } else if (rx > (width / 2) || rx == width / 2) {
+                        //     ctx.beginPath2();
+                        //     ctx.moveTo2(x, y + rx);
+                        //     ctx.lineTo2(x, y + height - rx);
+                        //     ctx.arc2(x + rx, y + height - rx, rx, 0, Math.PI);
+                        //     ctx.lineTo2(x + width, y + height - rx);
+                        //     ctx.lineTo2(x + width, y + rx);
+                        //     ctx.arc2(x + rx, y - rx, rx, 0, Math.PI, true);
+                        //     ctx.closePath2();
+                        // } else {
+                        //
+                        // }
                         ctx.beginPath2();
                         ctx.moveTo2(x + rx, y);
                         ctx.lineTo2(x + width - rx, y);
@@ -2158,7 +2180,7 @@
         svg.Element.animate = function (node) {
             this.base = svg.Element.AnimateBase;
             this.base(node);
-
+            console.log(node, 'teset');
             this.calcValue = function () {
                 var p = this.progress();
 
@@ -2734,13 +2756,15 @@
         }
         svg.Element.use.prototype = new svg.Element.RenderedElementBase;
 
-        // mask element
+        /**
+         *
+         * mask element
+         * @param node
+         */
         svg.Element.mask = function (node) {
             this.base = svg.Element.ElementBase;
             this.base(node);
-
             this.apply = function (ctx, element) {
-                console.log(ctx.name, '888888')
                 // render as temp svg
                 var x = this.attribute('x').toPixels('x');
                 var y = this.attribute('y').toPixels('y');
@@ -2762,11 +2786,11 @@
                 var mask = element.attribute('mask').value;
                 element.attribute('mask').value = '';
                 //
-                // var cMask = document.createElement('canvas');
-                // cMask.width = x + width;
-                // cMask.height = y + height;
-                // var maskCtx = cMask.getContext('2d');
-                // this.renderChildren(maskCtx);
+                var cMask = document.createElement('canvas');
+                cMask.width = x + width;
+                cMask.height = y + height;
+                var maskCtx = cMask.getContext('2d');
+                this.renderChildren(maskCtx);
 
                 var c = document.createElement('canvas');
                 c.width = x + width;
@@ -2774,7 +2798,7 @@
                 var tempCtx = c.getContext('2d');
                 element.render(tempCtx);
                 tempCtx.globalCompositeOperation2 = 'destination-in';
-                // tempCtx.fillStyle2 = maskCtx.createPattern(cMask, 'no-repeat');
+                tempCtx.fillStyle2 = maskCtx.createPattern2(cMask, 'no-repeat');
                 tempCtx.fillRect2(0, 0, x + width, y + height);
 
                 ctx.fillStyle2 = tempCtx.createPattern2(c, 'no-repeat');
@@ -2851,15 +2875,35 @@
                 var filter = element.style('filter').value;
                 element.style('filter').value = '';
 
-                var px = 0, py = 0;
+                var px = 0, py = 0, isImage = false;
                 for (var i = 0; i < this.children.length; i++) {
+                    // 判断是否是图像模糊
+                    if (this.children[i].type === 'feGaussianBlur' && (this.children[i].attribute('in').value === 'SourceGraphic'))
+                        isImage = true;
                     var efd = this.children[i].extraFilterDistance || 0;
                     px = Math.max(px, efd);
                     py = Math.max(py, efd);
                 }
-                for (var i = 0; i < this.children.length; i++) {
-                    this.children[i].apply(ctx, 0, 0, width + 2 * px, height + 2 * py);
+                if (!isImage) {
+                    for (var i = 0; i < this.children.length; i++) {
+                        this.children[i].apply(ctx, 0, 0, width + 2 * px, height + 2 * py);
+                    }
+                } else {
+                    var c = document.createElement('canvas');
+                    c.width = width + 2 * px;
+                    c.height = height + 2 * py;
+                    var tempCtx = c.getContext('2d');
+                    tempCtx.translate2(-x + px, -y + py);
+                    element.render(tempCtx);
+                    // apply filters
+                    for (var i = 0; i < this.children.length; i++) {
+                        this.children[i].apply(tempCtx, 0, 0, width + 2 * px, height + 2 * py);
+                    }
+
+                    // render on me
+                    ctx.drawImage2(c, 0, 0, width + 2 * px, height + 2 * py, x - px, y - py, width + 2 * px, height + 2 * py);
                 }
+
                 element.style('filter', true).value = filter;
             }
 
@@ -2960,7 +3004,11 @@
                 }
                 ctx.canvas.id = svg.UniqueId();
                 // 赋值阴影模糊值
-                ctx.shadowBlur2 = this.blurRadius;
+                if (this.attribute('in').value === 'SourceGraphic') {
+                    stackBlurCanvasRGBA(ctx.canvas, x, y, width, height, this.blurRadius);
+                } else {
+                    ctx.shadowBlur2 = this.blurRadius;
+                }
                 ctx.canvas.style.display = 'none';
                 document.body.appendChild(ctx.canvas);
             }
@@ -3098,7 +3146,7 @@
                 if (svg.opts['offsetY'] != null) e.attribute('y', true).value = svg.opts['offsetY'];
                 if (svg.opts['scaleWidth'] != null || svg.opts['scaleHeight'] != null) {
                     var xRatio = null, yRatio = null, viewBox = svg.ToNumberArray(e.attribute('viewBox').value);
-
+                    // 缩放比例
                     if (svg.opts['scaleWidth'] != null) {
                         if (e.attribute('width').hasValue()) xRatio = e.attribute('width').toPixels('x') / svg.opts['scaleWidth'];
                         else if (!isNaN(viewBox[2])) xRatio = viewBox[2] / svg.opts['scaleWidth'];

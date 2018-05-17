@@ -34,7 +34,7 @@
         }
 
         .left {
-            width: 24%;
+            width: 30%;
             background-color: #EEE;
             overflow-x: hidden;
             overflow-y: auto;
@@ -43,12 +43,13 @@
         }
 
         .center {
-            width: 52%;
+            width: 45%;
             padding: 0px 10px;
 
         }
+
         .right {
-            width: 24%;
+            width: 25%;
             background-color: #EEE;
             position: relative;
         }
@@ -94,7 +95,8 @@
             background-color: #EEE;
             display: inline-block;
         }
-        .btn{
+
+        .btn {
             position: absolute;
             right: 20px;
             top: 10px;
@@ -123,7 +125,7 @@
         <div id="q-canvas"></div>
     </div>
     <div class="right">
-        <button class="btn" onclick="updateCode()">保存</button>
+        <button class="btn" onclick="updateCode()">更新</button>
         <textarea id="code" spellcheck='false'></textarea>
     </div>
 </div>
@@ -131,7 +133,7 @@
 <script type="text/javascript" src="src/canvg-master/rgbcolor.js"></script>
 <script type="text/javascript" src="src/canvg2.js?v=1.0"></script>
 <script type="text/javascript">
-    var imageMaxWidth = 80;
+    var imageMaxWidth = 160;
     var page = document.getElementById('page');
     var code_out = document.getElementById('code');
     var canvas = document.getElementById('canvas');
@@ -172,8 +174,7 @@
         tempCanvas.style.zIndex = -1;
         tempCanvas.style.visibility = 'hidden'
         page.appendChild(tempCanvas); // 添加canvas节点
-        // decodeURIComponent(escape(window.atob(str))
-        // canvg,js 转化canvas
+        // canvg,js 转化canvas； 对内容编码转换，避免中文乱码
         canvg(tempCanvas, decodeURIComponent(escape(atob(img.src.substring('data:image/svg+xml;base64,'.length)))), {
             ignoreMouse: true,
             ignoreAnimation: true,
@@ -337,10 +338,15 @@
         }
     };
 
+    /**
+     * 更新代码
+     */
     function updateCode() {
         // console.log(code_out.value, 'test');
+        if (!code_out.value) return;
         this.updateGraph();
     }
+
 </script>
 <script src="src/canvg-master/qunee-min.js"></script>
 <script>

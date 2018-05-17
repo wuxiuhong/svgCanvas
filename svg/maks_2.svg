@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="236px" height="123px" viewBox="0 0 236 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.32421875 0.40625 85.5644531 1 58.9941406 81 16.5878906 81"></polygon>
+        <linearGradient x1="50%" y1="90.1884191%" x2="50%" y2="-12.4502145%" id="linearGradient-3">
+            <stop stop-color="#00CD94" offset="0%"></stop>
+            <stop stop-color="#8BE8CB" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-1.31931679%" y1="38.8691023%" x2="101.319317%" y2="38.8691023%" id="linearGradient-4">
+            <stop stop-color="#00CD94" offset="0%"></stop>
+            <stop stop-color="#8BE8CB" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-5" x="0" y="0" width="80" height="80"></rect>
+        <rect id="path-7" x="0" y="0" width="27" height="49"></rect>
+        <linearGradient x1="50%" y1="90.1884191%" x2="50%" y2="-8.42698767%" id="linearGradient-9">
+            <stop stop-color="#00CD94" stop-opacity="0.7" offset="0%"></stop>
+            <stop stop-color="#8BE8CB" stop-opacity="0.8" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-10" x="0" y="0" width="27" height="49"></rect>
+    </defs>
+    <g id="Artboard-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(16.000000, 23.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="mask" stroke="#00CD94" xlink:href="#path-1"></use>
+            <circle id="Oval-5" fill="url(#linearGradient-3)" mask="url(#mask-2)" cx="65" cy="41" r="33"></circle>
+            <circle id="Oval-5-Copy-2" fill="url(#linearGradient-3)" mask="url(#mask-2)" cx="16" cy="76" r="22"></circle>
+            <circle id="Oval-5-Copy-3" fill="url(#linearGradient-4)" mask="url(#mask-2)" cx="7.5" cy="6.5" r="23.5"></circle>
+        </g>
+        <g id="Group-Copy" transform="translate(118.000000, 24.000000)">
+            <mask id="mask-6" fill="white">
+                <use xlink:href="#path-5"></use>
+            </mask>
+            <g id="mask"></g>
+            <circle id="Oval-5" fill-opacity="0.8" fill="url(#linearGradient-3)" mask="url(#mask-6)" cx="82" cy="40" r="33"></circle>
+            <circle id="Oval-5" fill-opacity="0.8" fill="url(#linearGradient-3)" mask="url(#mask-6)" cx="57" cy="41" r="24"></circle>
+            <g id="2" mask="url(#mask-6)">
+                <g transform="translate(-6.000000, 15.000000)">
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="mask" stroke="none" fill="none"></g>
+                    <circle id="Oval-5" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" opacity="0.8" mask="url(#mask-8)" cx="31" cy="25" r="18"></circle>
+                    <circle id="Oval-5" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" opacity="0.8" mask="url(#mask-8)" cx="27" cy="25" r="18"></circle>
+                    <circle id="Oval-5-Copy" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" mask="url(#mask-8)" cx="37" cy="25" r="18"></circle>
+                </g>
+            </g>
+            <g id="1" mask="url(#mask-6)">
+                <g transform="translate(12.000000, 15.000000)">
+                    <mask id="mask-11" fill="white">
+                        <use xlink:href="#path-10"></use>
+                    </mask>
+                    <g id="mask" stroke="none" fill="none"></g>
+                    <ellipse id="Oval-5" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" opacity="0.8" mask="url(#mask-11)" cx="30.5" cy="25" rx="21.5" ry="22"></ellipse>
+                    <ellipse id="Oval-5" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" opacity="0.8" mask="url(#mask-11)" cx="25.5" cy="25" rx="21.5" ry="22"></ellipse>
+                    <ellipse id="Oval-5-Copy" stroke="none" fill="url(#linearGradient-9)" fill-rule="evenodd" mask="url(#mask-11)" cx="37.5" cy="25" rx="21.5" ry="22"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
